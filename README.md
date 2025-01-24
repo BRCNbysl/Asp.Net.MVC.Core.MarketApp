@@ -1,132 +1,163 @@
-# Online-Market
+#Market
 
+Proje, **ASP.NET MVC Core** kullanılarak geliştirilmiş olup, katmanlı mimari yapısı uygulanmıştır. Proje, aşağıdaki katmanlardan oluşmaktadır:
 
- Proje Asp.Net Mvc Core ile geliştirilmiştir. Projede katmanlı mimari yapısı kullanılmıştır. Business katmanı, DataAccess katmanı, Entities katmanı ve Web katmanı bulunmaktadır.
-Proje **Entity Framework Code First** yaklaşımı ile geliştirilmiştir. Üyelik sisteminde **Identity Core** kullanılmıştır. User register'da mail ile doğrulama vardır. Projede hatasız çalışan bir rol sistemi mevcuttur. Ödeme sistemi olarak **Iyzico** kullanılmıştır. Proje Kodluyoruz Backend kursu bitirme projesi olarak yapılmıştır. Aşağıda projeye dair ayrıntılı açıklama ve projeden resimler mevcuttur.
+- **Business Katmanı**: İş kurallarını içerir.
+- **DataAccess Katmanı**: Veri tabanı işlemleri bu katmanda gerçekleştirilir.
+- **Entities Katmanı**: Veri modellerini içerir.
+- **Web Katmanı**: Kullanıcı arayüzü bu katmanda yer alır.
 
-Projede 3 kısım vardır 
+Proje, **Entity Framework Code First** yaklaşımıyla geliştirilmiştir. Kullanıcı kimlik doğrulaması ve yönetimi için **Identity Core** kullanılmıştır. Kullanıcı kayıt sürecinde mail doğrulaması yer almaktadır. Ayrıca, hatasız çalışan bir rol sistemi mevcuttur. Ödeme işlemleri için **Iyzico** entegrasyonu yapılmıştır. Bu proje, Kodluyoruz Backend kursu bitirme projesi olarak geliştirilmiştir.
 
-1. Front End 
-2. User Area 
-3. Admin Area
+---
 
-Projede Şu eklentilerde kullanılmıştır.
+## Projenin Bölümleri
 
-- Datatables
-- SweetAlert
-- CKEditör
-- Google Chart
+Proje, aşağıdaki ana bölümlerden oluşmaktadır:
 
+1. **Front End**
+2. **User Area**
+3. **Admin Area**
+
+---
+
+### Kullanılan Eklentiler
+Projede aşağıdaki eklentiler kullanılmıştır:
+
+- **Datatables**
+- **SweetAlert**
+- **CKEditor**
+- **Google Chart**
+
+---
 
 ## Front End
 
-Front End kısmında şu sayfalar vardır.
+Front End kısmında aşağıdaki sayfalar bulunmaktadır:
 
-- Home
-- Products
-- About Us
-- Contact
-- Login
-- Register
+### Home
+Ana sayfada bir arama butonu ile ürün arama yapılabilir. Sayfada sırasıyla şu bölümler bulunmaktadır:
+- **Slider**: Görsel bir kaydırıcı.
+- **Products of the Month** ve **Today Offers**: Admin paneli üzerinden değiştirilebilir.
+- **Popular Products**: Admin panelinden yönetilebilir.
+- **Kategoriler** ve **New Offers**: Admin panelinden ayarlanabilir.
 
-1. Home
+### Products
+Ürünler sayfasında şu özellikler bulunmaktadır:
+- Ürünler ve kategoriler listelenir (kategoriler admin panelinden yönetilir).
+- Ürün detaylarına gidilebilir.
+- Ürün istek listesine eklenebilir ya da karta eklenebilir.
+- Sayfa üzerinde **sayfalama (paging)** desteği vardır.
+- İndirimli ürünler, fiyat ve görsellerle birlikte belirtilir.
 
-İlk olarak Home sayfasında bir **search** butonu vardır ve buradan ürün aramak mümkündür. Onun altında bir slider vardır. Slider'ın altında Products Of Month ve Today Offers vardır ve buraları Admin Area'dan değiştirebiliyoruz. Onların altında ise Popular Products kısmı vardır ve burayıda Admin Area'dan değiştirebiliriz. Popüler ürünlerden sonra Kategoriler var ve son olarak en altta New Offers kısmı var ve burayıda Admin Area'dan ayarlayabiliriz.
+### About Us
+Bu bölümde kısa bir "Hakkımızda" yazısı ve iletişim bilgileri bulunmaktadır.
 
-2. Products
+### Contact
+İletişim sayfasında şu özellikler yer alır:
+- İletişim bilgileri.
+- Harita entegrasyonu.
+- Kullanıcıların mesaj bırakabileceği bir "Leave a Message" bölümü. Bu mesajlar admin panelinde görüntülenebilir ve yanıtlanabilir.
 
-Ürünler sayfasında kategoriler ve ürünler vardır. Kategorileri Admin Area'dan değiştirebiliriz. Ürünleri ise detaylarına gidebilir, istek listesine ekleyebilir ve karta ekleyebiliriz. Ürün sayfalarında **paging** mevcuttur. Ayrıca indirimleri ürünlerin görünümleri ve fiyatları değişmektedir.
+### Login ve Register
+- **Login**: Mail doğrulamasını tamamlamış kullanıcılar giriş yapabilir.
+- **Register**: Kullanıcı kayıt işlemi sonrası doğrulama maili gönderilir ve doğrulama tamamlandığında giriş yapılabilir.
 
-3. About Us
-
-Bu kısımda kısa bir hakkımızda yazısı ve ileitşim bilgileri vardır.
-
-4. Contact
-
-İletişim kısmında iletişim bilgileri ve bir harita mevcuttur. Leave a message kısmından mesajlar bırakılabilir. Bu mesajlar admin kısmında gözükmekte ve cevaplanabilmektedir.
-
-5. Login
-
-Login kısmından mail doğrulamasını yapan kullanıcılar giriş yapabilir.
-
-6. Register
-
-Kayıt olma kısmında bilgilerinizle kayıt olabilirsiniz. Kayıt olduktan sonra doğrulama maili gelmektedir bunu doğruladıktan sonra giriş yapabilirsiniz.
+---
 
 ## User Area
+Kullanıcılar bu bölümde aşağıdaki işlemleri yapabilir:
 
-User'lar şu işlemleri yapabilir.
+- **Sepet İşlemleri**: Karta eklenen ürünlerin ödemesi yapılabilir (Iyzico ile).
+- **Sipariş Takibi**: Ödenen ürünler görüntülenebilir ve kargo takibi yapılabilir.
+- **İstek Listesi**: İstek listesi yönetilebilir (ekleme/çıkarma).
+- **Adres Yönetimi**: Adresler eklenebilir, güncellenebilir ya da silinebilir.
+- **Kart Bilgileri Yönetimi**: Kart bilgileri eklenebilir, güncellenebilir ya da silinebilir.
+- **Profil Yönetimi**: Kullanıcı bilgileri güncellenebilir.
 
-- Karta eklediği ürünlerin ödemesini yapabilir (**İyzico ile ödeme**).
-- Ödemesini yaptığı ürünleri görebilir ve kargo takibi yapabilir.
-- İstek listesine eklediği ürünleri görebilir ve istek listesinden çıkarabilir.
-- Adreslerini ekleyebilir, güncelleyebilir veya silebilir
-- Kart bilgilerini ekleyebilir, günceleyebilir ve silebilir.
-- Profilinden kulanıcı bilgilerini değiştirebilir.
+---
 
 ## Admin Area
+Admin paneline `/Admin` adresinden giriş yapılabilir. Admin panelinde şu bölümler yer alır:
 
-Admin Area'da şu sayfalar vardır.
+### Dashboard
+Bu bölümde:
+- Önemli istatistikler.
+- Ana sayfadaki düzenlenebilir bölümleri değiştirme seçenekleri.
 
-- Dashboard
-- Categories
-- Products
-- Roles
-- Users
-- Orders
-- Announcements
-- Help Messages
-- Go to the site
-- Statistic
-- Graphics
+### Categories
+- Kategorilerin listelenmesi, güncellenmesi, eklenmesi ve **soft delete** işlemleri.
+- Bir kategoriyi güncellerken, o kategoriye ait ürünler listelenmektedir.
 
-Admin Area'ya girmek için arama çubuğuna /Admin diyerek gidebilirsiniz ve kullanıcı adı ve şifre ile giriş yapabilirsiniz.
+### Products
+- Ürünlerin listelenmesi, eklenmesi, güncellenmesi ve **soft delete** işlemleri.
+- Ürün ekleme/güncelleme sırasında açıklama için **CKEditor** kullanılmaktadır.
+- Resim ekleme özelliği vardır.
+- İndirimli ürünler admin panelinde belirtilebilir, böylece Front End'de kullanıcıya gösterilir.
+- **SweetAlert** eklentisi, kullanıcı bilgilendirmeleri için kullanılmıştır.
 
-1. Dashboard 
+### Roles
+- Yeni roller oluşturulabilir.
+- Kullanıcılar rollere eklenebilir/çıkarılabilir.
+- Sadece **Admin** rolüne sahip kullanıcılar admin paneline erişebilir.
 
-Bu kısımda önemli bir kaç istatistik var ve ana sayfadaki değişebilen kısımları değiştirebilmek için bölümler mevcut.
+### Users
+- Kullanıcıların listelenmesi.
 
-2. Categories
+### Orders
+- Siparişlerin görüntülenmesi ve **soft delete** işlemiyle pasif hale getirilmesi.
+- Kargo işlemlerinin yönetimi.
 
-Burada kategori listesi, güncelleme, ekleme ve soft delete işlemleri var. Buradaki tabloda ve gelecek tablolarda  **DataTables** eklentisi kulanılmıştır. Kategori güncellerken o kategoriye ait bütün ürünler listelenmektedir.
+### Announcements
+- Kullanıcılara yönelik duyurular eklenebilir, güncellenebilir.
 
-3. Products
+### Help Messages
+- Kullanıcılardan gelen yardım mesajları görüntülenebilir ve cevaplanabilir.
 
-Ürünler kısmında; ürün listesi, ekleme, güncelleme ve soft delete işlemi vardır. Ürün eklerken ve güncellerken açıklama kısmında **CKEditör** eklentisi kullanılmışıtr. Ayrıca burada ürün eklerken ve güncellerken Chosse File ile resim ekleyebiliyoruz. Ayrıca ürünlerin indirimli fiyatlarını girersek Front End kısmındaki ürünlerde indirim olduğu belirtilmektedir. Ürün ekleme ve güncellemede indirimli ile ilgili bilgi vermek için **SweetAlert** kullanılmıştır.
+### Statistic
+- Toplam 16 istatistik bulunmaktadır (örneğin, toplam kullanıcı sayısı, en çok harcama yapan kullanıcı vb.).
 
-4. Roles
+### Graphics
+- 3 farklı grafik türü:
+  - **Pie Chart**
+  - **Line Chart**
+  - **Column Chart**
+- Grafikler, **Google Chart** kullanılarak oluşturulmuştur.
 
-Roller kısmında yeni rol ekleyebilir. Mevcut rolerin içine üyeler ekleyebilir ve çıkarabilirsiniz. Sadece 'Admin' rolüne sahip kullanıcılar Admin paneline erişim sağlayabilmektedir. Datatables eklentisi kullanılmıştır.
-
-5. Users
-
-Kullanıcı kısmında sadece kullanıcıların listesi yer almaktadır.
-
-6. Orders
-
-Buradan siparişleri görebilirsiniz. Siparişleri soft delete ile pasif hale getirebilirsiniz. Ayrıca kargo işlemlerinide buradan gerçekleştirebilirsiniz.
-
-7. Announcements
-
-Duyuru kısmıyla kullanıcıların görebileceği duyurular yapabilir ve duyuruları değiştirebilirsiniz.
-
-8. Help Message
-
-Burada Front End kısmında göstermiş olduğum yardım panelinden gelen mesajları görebilir ve cevaplayabilirsiniz.
-
-9. Statistic
-
-Burada 16 adet istatistik bulunmaktadır. Örneğin kaç adet kullanıcımız var. En çok hangi kullanıcımız para harcıyor gibi.
-
-10. Graphics
-
-Burada 3 adet grafik vardır. Pie Chart--Line Chart--Column Chart. Grafiklerde **Google Chart** kullanılmıştır.
+---
 
 ## Kurulum
 
-Son olarak nasıl kurulum yapıp kullanabileceğinizden bahsedicem. Kurulum gayet basit ilk olarak Proje'yi Clone alıyoruz ardından Database'i kurmamız gerekiyor. Database için dosyaların içinde bulunan script dosyasını kullanabilir veya Back Up alınmış yedeği kullanabilirsiniz.
+Proje kurulumu oldukça basittir:
 
-*HomePage'deki template w3layouts'tan, Admin paneldeki template ise adminlte'den alınmıştır.*
+1. **Proje Clone Alma**:
+   ```bash
+   git clone https://github.com/username/Market.git
+   ```
 
-Proje geliştirmelerine devam etmekteyim herhangi bir öneriniz var ise  veya herhangi bir sorun ile karşılaşırsanız 
+2. **Veritabanı Kurulumu**:
+   - Proje dosyalarının içinde bulunan **script dosyasını** çalıştırarak ya da yedek dosyasını (backup) yükleyerek veritabanını kurabilirsiniz.
+
+3. **Gerekli Bağımlılıkları Yükleyin**:
+   - Bağımlılıkları yüklemek için şu komutları çalıştırın:
+     ```bash
+     dotnet restore
+     dotnet build
+     ```
+
+4. **Projeyi Çalıştırın**:
+   - Projeyi aşağıdaki komutla başlatabilirsiniz:
+     ```bash
+     dotnet run
+     ```
+
+---
+
+## Kullanılan Template
+
+- **HomePage Template**: [w3layouts](https://w3layouts.com)
+- **Admin Panel Template**: [AdminLTE](https://adminlte.io)
+
+---
+
 
