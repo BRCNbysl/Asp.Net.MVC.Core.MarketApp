@@ -1,4 +1,4 @@
-#Market
+#Market_Tr
 
 Proje, **ASP.NET MVC Core** kullanılarak geliştirilmiş olup, katmanlı mimari yapısı uygulanmıştır. Proje, aşağıdaki katmanlardan oluşmaktadır:
 
@@ -159,5 +159,170 @@ Proje kurulumu oldukça basittir:
 - **Admin Panel Template**: [AdminLTE](https://adminlte.io)
 
 ---
+
+
+
+# Market_En
+
+The project was developed using **ASP.NET MVC Core** with a layered architecture. The project consists of the following layers:
+
+- **Business Layer**: Contains business logic.
+- **DataAccess Layer**: Handles database operations.
+- **Entities Layer**: Contains data models.
+- **Web Layer**: Includes the user interface.
+
+The project was built with **Entity Framework Code First** approach. **Identity Core** was used for user authentication and management. Email verification is required during user registration. A fully functional role-based system is implemented. **Iyzico** is integrated as the payment system. This project was created as a graduation project for the Kodluyoruz Backend course.
+
+---
+
+## Project Sections
+
+The project is divided into the following main sections:
+
+1. **Front End**
+2. **User Area**
+3. **Admin Area**
+
+---
+
+### Plugins Used
+The project uses the following plugins:
+
+- **Datatables**
+- **SweetAlert**
+- **CKEditor**
+- **Google Chart**
+
+---
+
+## Front End
+
+The Front End section includes the following pages:
+
+### Home
+The homepage features a search button for finding products. The page includes:
+- **Slider**: A visual carousel.
+- **Products of the Month** and **Today Offers**: These can be managed from the Admin panel.
+- **Popular Products**: Configurable via the Admin panel.
+- **Categories** and **New Offers**: Can be adjusted through the Admin panel.
+
+### Products
+The products page includes:
+- A list of products and categories (categories are managed in the Admin panel).
+- Access to product details.
+- Adding products to the wishlist or cart.
+- **Paging** support for product listings.
+- Discounted products are displayed with updated prices and visuals.
+
+### About Us
+This page contains a short "About Us" text and contact information.
+
+### Contact
+The contact page features:
+- Contact details.
+- Map integration.
+- A "Leave a Message" section where users can send messages. These messages can be viewed and replied to from the Admin panel.
+
+### Login and Register
+- **Login**: Verified users can log in.
+- **Register**: Users can sign up with their details. After registration, a verification email is sent, and users can log in after completing the verification.
+
+---
+
+## User Area
+Users can perform the following actions:
+
+- **Cart Management**: Make payments for items in the cart (via Iyzico).
+- **Order Tracking**: View purchased items and track shipping.
+- **Wishlist Management**: View and remove items from the wishlist.
+- **Address Management**: Add, update, or delete addresses.
+- **Card Management**: Add, update, or delete card information.
+- **Profile Management**: Update user information.
+
+---
+
+## Admin Area
+The Admin panel can be accessed by navigating to `/Admin`. The Admin panel includes the following sections:
+
+### Dashboard
+This section displays:
+- Key statistics.
+- Options to modify dynamic sections of the homepage.
+
+### Categories
+- List, update, add, and **soft delete** categories.
+- When updating a category, all products in that category are listed.
+
+### Products
+- List, add, update, and **soft delete** products.
+- **CKEditor** is used for product descriptions during addition and updates.
+- File upload support for product images.
+- Discounted products can be specified in the Admin panel and displayed to users on the Front End.
+- **SweetAlert** is used for user notifications.
+
+### Roles
+- Create new roles.
+- Add or remove users from roles.
+- Only users with the **Admin** role can access the Admin panel.
+
+### Users
+- Displays a list of users.
+
+### Orders
+- View orders and mark them as inactive with **soft delete**.
+- Manage shipping operations.
+
+### Announcements
+- Add or update announcements visible to users.
+
+### Help Messages
+- View and respond to messages sent from the help panel on the Front End.
+
+### Statistic
+- Includes 16 statistics (e.g., total number of users, top-spending user).
+
+### Graphics
+- Features 3 types of charts:
+  - **Pie Chart**
+  - **Line Chart**
+  - **Column Chart**
+- Charts are implemented using **Google Chart**.
+
+---
+
+## Installation
+
+Setting up the project is straightforward:
+
+1. **Clone the Project**:
+   ```bash
+   git clone https://github.com/username/Market.git
+   ```
+
+2. **Database Setup**:
+   - Use the provided **script file** in the project directory or restore from the backup file to set up the database.
+
+3. **Install Dependencies**:
+   - Run the following commands to install dependencies:
+     ```bash
+     dotnet restore
+     dotnet build
+     ```
+
+4. **Run the Project**:
+   - Start the project with the following command:
+     ```bash
+     dotnet run
+     ```
+
+---
+
+## Templates Used
+
+- **HomePage Template**: [w3layouts](https://w3layouts.com)
+- **Admin Panel Template**: [AdminLTE](https://adminlte.io)
+
+---
+
 
 
